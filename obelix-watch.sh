@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 
+suffix="$(hexdump -n 3 -e '1/2 "%04x"' /dev/urandom)"
+
 kubectl apply -f - << EOT
 apiVersion: batch/v1
 kind: Job
 metadata:
   namespace: ${NAMESPACE}
-  name: obelix-${NODE}
+  name: obelix-sync-${suffix}
 spec:
   template:
     spec:
@@ -14,7 +16,7 @@ spec:
       containers:
         - name: obelix
           image: ${OBELIX_IMAGE}
-          command: ["ls", "-alR", "/"]
+          command: ["python", "-m", "obelix", "sync", "--prefix", "deploy/hosted/"]
           volumeMounts:
             - mountPath: /products
               name: products
