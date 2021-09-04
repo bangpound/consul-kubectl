@@ -13,6 +13,8 @@ spec:
     spec:
       nodeName: ${NODE}
       restartPolicy: OnFailure
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: obelix
           image: ${OBELIX_IMAGE}
