@@ -13,7 +13,7 @@ spec:
       restartPolicy: OnFailure
       containers:
         - name: obelix
-          image: busybox
+          image: ${OBELIX_IMAGE}
           command: ["ls", "-alR", "/"]
           volumeMounts:
             - mountPath: /products
