@@ -15,6 +15,7 @@ spec:
       restartPolicy: OnFailure
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+      serviceAccountName: obelix
       containers:
         - name: obelix
           image: ${OBELIX_IMAGE}
