@@ -21,17 +21,17 @@ spec:
           image: ${OBELIX_IMAGE}
           command: ["python", "-m", "obelix", "sync", "--prefix", "deploy/hosted/"]
           volumeMounts:
-            - mountPath: /products
-              name: products
-            - mountPath: /deploy
-              name: deploy
+            - name: products
+              mountPath: /products
+            - name: deploy
+              mountPath: /deploy
       volumes:
-        - hostPath:
+        - name: products
+          hostPath:
             path: /products
             type: Directory
-          name: products
-        - hostPath:
+        - name: deploy
+          hostPath:
             path: /deploy
             type: Directory
-          name: deploy
 EOT
