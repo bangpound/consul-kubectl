@@ -10,6 +10,7 @@ spec:
   template:
     spec:
       nodeName: ${NODE}
+      restartPolicy: OnFailure
       containers:
         - name: obelix
           image: busybox
