@@ -25,6 +25,8 @@ spec:
               mountPath: /products
             - name: deploy
               mountPath: /deploy
+          securityContext:
+            privileged: true
       volumes:
         - name: products
           hostPath:
