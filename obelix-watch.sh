@@ -16,15 +16,6 @@ spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       serviceAccountName: obelix
-      tolerations:
-        - key: activecampaign.com/hosted
-          operator: Equal
-          value: unavailable
-          effect: NoExecute
-        - key: activecampaign.com/hosted
-          operator: Equal
-          value: unavailable
-          effect: NoSchedule
       containers:
         - name: obelix
           image: ${OBELIX_IMAGE}
