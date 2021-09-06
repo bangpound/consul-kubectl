@@ -19,12 +19,16 @@ spec:
       containers:
         - name: obelix
           image: ${OBELIX_IMAGE}
-          command: ["python", "-m", "obelix", "sync", "--prefix", "deploy/hosted/"]
+          command: ["python", "-m", "obelix", "sync", "--prefix", "deploy/hosted/", "--pool-size", "4"]
           volumeMounts:
             - name: products
               mountPath: /products
             - name: deploy
               mountPath: /deploy
+          resources:
+            requests:
+              cpu: 2048m
+              memory: '5120Mi'
       volumes:
         - name: products
           hostPath:
