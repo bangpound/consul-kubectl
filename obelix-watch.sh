@@ -7,7 +7,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   namespace: ${NAMESPACE}
-  name: obelix-sync-${suffix}
+  name: obelix-sync-${NODE}
 spec:
   template:
     spec:
