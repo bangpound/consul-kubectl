@@ -12,7 +12,7 @@ spec:
   template:
     spec:
       nodeName: ${NODE}
-      restartPolicy: OnFailure
+      restartPolicy: Never
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       serviceAccountName: obelix
